@@ -4,13 +4,14 @@
              x:Class="AppTeste.Pages.HomePage"
              x:Name="PaiPage"
              Title="HomePage">
-
-            <FlexLayout>
+    <Grid>
+        <ScrollView>
+            <Grid>
                 <!-- Header -->
                 <VerticalStackLayout>
                     <Grid>
                         <BoxView BackgroundColor="#3255e2" HeightRequest="64"/>
-                <Label Text="Avaliações" FontSize="24"/>
+                        <Label Text="Avaliações" FontSize="24"/>
                     </Grid>
                     <HorizontalStackLayout BackgroundColor="#202380" Padding="10">
                         <Button Text="Inicio"/>
@@ -60,5 +61,7 @@
                     </BindableLayout.ItemTemplate>
                 </FlexLayout>
 
-            </FlexLayout>
+            </Grid>
+        </ScrollView>
+    </Grid>
 </ContentPage>
