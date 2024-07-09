@@ -1,5 +1,6 @@
 ﻿using AppTeste.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace AppTeste.ViewModels;
 
@@ -30,5 +31,31 @@ public partial class HomeViewModel : ObservableObject
             new Assessments { Name = "The Matrix" },
             new Assessments { Name = "Goodfellas" }
         ];
+    }
+
+    [RelayCommand]
+    async Task Detail(object data)
+    {
+        var query = new Dictionary<string, object>
+        {
+            { "Data", data }
+        };
+
+        var assessment = query["Data"] as Assessments;
+
+        try
+        {
+            await Shell.Current.DisplayAlert("Message", $"The Name Movie{assessment.Name}", "Ok");
+            //await Shell.Current.GoToAsync($"DetailsPage", query);
+        }
+        catch (Exception ex)
+        {
+            if (ex.InnerException is not null)
+            {
+                Console.WriteLine(ex.InnerException.Message);
+            }
+
+            Console.WriteLine($"{ex.Message} - {ex.StackTrace}");
+        }
     }
 }

@@ -2,37 +2,67 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppTeste.Pages.HomePage"
+             x:Name="PaiPage"
              Title="HomePage">
-    <ScrollView>
-        <!-- Body -->
-        <FlexLayout FlexLayout.Grow="1"
-         Wrap="Wrap"
-         JustifyContent="Start" 
-         BindableLayout.ItemsSource="{Binding Assessments}"
-         Margin="10"
-         ZIndex="4">
 
-            <!-- Content -->
-            <BindableLayout.ItemTemplate>
-                <DataTemplate>
-                    <VerticalStackLayout>
-                        <Frame CornerRadius="10"
-                    HasShadow="True"
-                    BorderColor="White"
-                    WidthRequest="160"
-                    HeightRequest="240"
-                    Padding="0"
-                    Margin="10">
-                            <Image Source="{Binding Image}"
-                    x:Name="ImageCard"
-                    Aspect="AspectFill"
-                    MaximumWidthRequest="160"
-                    MaximumHeightRequest="240"/>
-                        </Frame>
-                    </VerticalStackLayout>
-                </DataTemplate>
-            </BindableLayout.ItemTemplate>
-        </FlexLayout>
+    <Grid>
+        <ScrollView>
+            <FlexLayout Direction="Column">
+                <!-- Header -->
+                <VerticalStackLayout>
+                    <Grid>
+                        <BoxView BackgroundColor="#3255e2" HeightRequest="64"/>
+                        <Label Text="Avaçiações" FontSize="24"/>
+                    </Grid>
+                    <HorizontalStackLayout BackgroundColor="#202380" Padding="10">
+                        <Button Text="Inicio"/>
+                        <Button Text="Filmes" />
+                        <Button Text="Séries"/>
+                        <Button Text="Livros"/>
+                        <Button Text="Musicas"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
 
-    </ScrollView>
+
+                <!-- Body -->
+                <FlexLayout FlexLayout.Grow="1"
+                            Wrap="Wrap"
+                            JustifyContent="Start" 
+                            BindableLayout.ItemsSource="{Binding Assessments}"
+                            Margin="10"
+                            ZIndex="4">
+
+                    <!-- Content -->
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout>
+                                <Frame CornerRadius="10"
+                                       HasShadow="True"
+                                       BorderColor="White"
+                                       WidthRequest="160"
+                                       HeightRequest="240"
+                                       Padding="0"
+                                       Margin="10">
+                                    <Image Source="{Binding ImagePath}"
+                                       x:Name="ImageCard"
+                                       Aspect="AspectFill"
+                                       MaximumWidthRequest="160"
+                                       MaximumHeightRequest="240">
+                                        <Image.GestureRecognizers>
+                                            <PointerGestureRecognizer PointerEntered="OnPointerEntered"
+                                                                      PointerExited="OnPointerExited"/>
+
+                                            <TapGestureRecognizer Command="{Binding BindingContext.DetailCommand,Source={x:Reference PaiPage}}"
+                                                                  CommandParameter="{Binding .}"/>
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Frame>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+
+            </FlexLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>
