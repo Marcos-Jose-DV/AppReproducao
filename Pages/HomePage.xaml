@@ -7,7 +7,7 @@
 
     <Grid>
         <ScrollView>
-            <HorizontalStackLayout>
+            <StackLayout>
                 <!-- Header -->
                 <VerticalStackLayout>
                     <Grid>
@@ -62,7 +62,7 @@
                     </BindableLayout.ItemTemplate>
                 </FlexLayout>
 
-            </HorizontalStackLayout>
+            </StackLayout>
         </ScrollView>
     </Grid>
 </ContentPage>
