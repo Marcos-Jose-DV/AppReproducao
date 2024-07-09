@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTeste.Pages.HomePage"
+             Title="HomePage">
+    <ScrollView>
+        <!-- Body -->
+        <FlexLayout FlexLayout.Grow="1"
+         Wrap="Wrap"
+         JustifyContent="Start" 
+         BindableLayout.ItemsSource="{Binding Assessments}"
+         Margin="10"
+         ZIndex="4">
+
+            <!-- Content -->
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Frame CornerRadius="10"
+                    HasShadow="True"
+                    BorderColor="White"
+                    WidthRequest="160"
+                    HeightRequest="240"
+                    Padding="0"
+                    Margin="10">
+                            <Image Source="{Binding Image}"
+                    x:Name="ImageCard"
+                    Aspect="AspectFill"
+                    MaximumWidthRequest="160"
+                    MaximumHeightRequest="240"/>
+                        </Frame>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+
+    </ScrollView>
+</ContentPage>
