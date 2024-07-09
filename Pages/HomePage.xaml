@@ -7,7 +7,7 @@
 
     <Grid>
         <ScrollView>
-            <FlexLayout Direction="Column">
+            <VerticalStackLayout>
                 <!-- Header -->
                 <VerticalStackLayout>
                     <Grid>
@@ -43,7 +43,7 @@
                                        HeightRequest="240"
                                        Padding="0"
                                        Margin="10">
-                                    <Image Source="{Binding ImagePath}"
+                                    <Image Source="{Binding Image}"
                                        x:Name="ImageCard"
                                        Aspect="AspectFill"
                                        MaximumWidthRequest="160"
@@ -62,7 +62,7 @@
                     </BindableLayout.ItemTemplate>
                 </FlexLayout>
 
-            </FlexLayout>
+            </VerticalStackLayout>
         </ScrollView>
     </Grid>
 </ContentPage>
